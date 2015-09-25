@@ -1,26 +1,6 @@
-package zp.test;
+package map;
 
-public class StaticTest {
-
-    public static void main(String[] args) {
-        Employee[] staffs = new Employee[3];
-        staffs[0] = new Employee("Mary", 80000);
-        staffs[1] = new Employee("Jack", 70000);
-        staffs[2] = new Employee("zp", 100000000);
-
-        for(Employee e:staffs){
-            e.setId();
-            System.out.printf("name = " + e.getName() + ", salary = " + e.getSalary() +
-                ", id = " + e.getId());
-            System.out.println();
-        }
-
-        System.out.println("Next available id is " + Employee.getNextId());
-    }
-}
-
-class Employee
-{
+public class Employee {
     private static int nextId = 1;
 
     private String name;
@@ -61,6 +41,15 @@ class Employee
     public static int getNextId()
     {
         return nextId;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", salary=" + salary +
+                ", id=" + id +
+                '}';
     }
 
     public void raiseSalary(double byPercent)
